@@ -1,9 +1,9 @@
 <script setup lang="ts">
   import PassengerCard from '@/components/PassengerCard.vue'
-import PassengerService from '@/services/PassengerService';
-  import Passenger from '@/types/Passenger'
+  import PassengerService from '@/services/PassengerService';
+  import {type Passenger} from '@/types'
   import { ref, onMounted } from 'vue'
-  const passengers = ref<Passenger[]>(null)
+  const passengers = ref<Passenger[] | null >(null)
   onMounted(() =>{
     PassengerService.getPassengers()
     .then((response) =>{
@@ -18,7 +18,7 @@ import PassengerService from '@/services/PassengerService';
 <template>
   <h1>Passengers list</h1>
   <div class="passengers">
-    <PassengerCard v-for="passenger in passengers" :key="passenger.id" :passenger="passenger" />
+    <PassengerCard v-for="passenger in passengers" :key="passenger._id" :passenger="passenger" />
   </div>
 </template>
 

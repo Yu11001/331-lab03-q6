@@ -9,7 +9,7 @@ import PassengerCard from './components/PassengerCard.vue'
       <div class="wrapper">
         <nav>
           <RouterLink to="/">Passenger</RouterLink> | 
-          <RouterLink to="/about">About</RouterLink>
+          <RouterLink :to="{name:'about'}">About</RouterLink>
         </nav>
       </div>
     </header>
